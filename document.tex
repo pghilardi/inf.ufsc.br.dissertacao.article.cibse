@@ -87,10 +87,10 @@ meta-model, because the meta-model extensions cannot be used in CASE available t
 
 Our proposed approach specifies aspect-oriented software through a lightweight profile, using some stereotypes from the Evermann{'}s profile and
 proposing others to represent the behavior of the core and crosscutting concerns. The constructions are based in the AspectJ language
-\cite{AspectJ11}, which is the standard language for AOP with Java. Stein{'}s profile also allows the specification of aspect-oriented applications,
-but we choose to extend the Evermann{'}s profile because it represents the most important characteristics of AOP, including the separation of concerns
-in packages and the specification of the most important pointcut types. Our proposed approach overcomes one limitation of the Evermann{'}s work, that
-does not allow capturing multiple join points with wildcards in the pointcut definition. In the Evermann{'}s approach, a pointcut refers to a specific
+\cite{AspectJ11}, which is the standard language for AOP with Java. Stein{'}s profile also allows the specification of aspect-oriented applications, 
+but we choose to extend the Evermann{'}s profile because it represents the most important characteristics of AOP, including the separation
+of concerns in packages and the specification of the most important pointcut types. Our approach overcomes one limitation of the Evermann{'}s work,
+that does not allow capturing multiple join points with wildcards in the pointcut definition. In the Evermann{'}s approach, a pointcut refers to a specific
 model element that must be explicitly specified by the modeler. Our approach represents pointcuts with states and transitions from the state machine
 diagram. Each transition represents the capture of one or more join points, with the possibility of using wildcards. If the capture of all the join
 points is satisfied, that is, if the conditions for triggering a transition are satisfied, it is considered that the system has met a certain
@@ -120,8 +120,8 @@ that represents the advice behavior.
 
 Using the constructions specified by the lightweight profile, this paper allows the automatic composition of core and crosscutting models, enabling
 alternating views of the system dynamics (with and without the explicitation of the aspects) and, thus, facilitating the model understanding and
-maintenance. A tool named SEA/Aspect, implemented in the SEA environment \cite{silva:00}, allows the dynamic enabling of aspects, visualizing only the behavior of the
-core models, the crosscutting models, or the composition of one or more crosscutting models with a core model automatically. The developer differentiates the behavior 
+maintenance. The SEA/Aspect, implemented in the SEA environment as a tool \cite{silva:00}, allows the dynamic enabling of aspects, visualizing only
+the behavior of the core models, the crosscutting models, or the composition of one or more crosscutting models with a core model automatically. The developer differentiates the behavior 
 of each concern by different colors in the compound model.
 
 This article is organized as follows: section II presents the proposal for specification of aspect-oriented software. The section III deals with the
