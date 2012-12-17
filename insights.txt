@@ -1,0 +1,13 @@
+Insights:
+- Advices are better understood as a sequence of messages in sequence diagrams
+instead state machines or activity diagrams.
+- We want to represent more than the other approaches, by showing how to model
+the most important joint points of AspectJ and aspect-oriented systems like:
+call, execution, initialization, preinitialization, this, target, args, handler,
+cflow, cflowbelow and pointcut compositions (NOT, AND, OR)
+- The constructions close to the AspectJ syntax eases the understanding of the
+proposed approach, because AspectJ is one of the most used aspect-oriented tools in the
+Java comunity.
+Focus in the modeling of the system behavior: pointcuts modeled with state
+machine diagrams. Aspects modeled with sequence diagrams. The connection between
+pointcuts and aspects is achieved using state invariants.
