@@ -80,13 +80,13 @@ Some approaches have been proposed for the modeling of aspect-oriented systems u
 applications. Another set of proposals extends the UML through a lightweight profile \cite{Evermann:2007:MSP:1229375.1229379}
 \cite{Cottenier06themotorola} \cite{stein:02}, which can be used in CASE tools that support importing profiles. Our approach specifies aspect-oriented
 software through a lightweight profile, using some stereotypes from the Evermann{'}s \cite{Evermann:2007:MSP:1229375.1229379} profile and proposing
-others to represent the behavior of the core and crosscutting concerns. The constructions are based in the AspectJ language \cite{AspectJ11}, which is
-the standard language for AOP with Java. The proposed approach allows the capture of multiple join points with wildcards in the pointcut specification
-and the modeling of the most important characteristics of AOP. The constructions specified by the lightweight profile allows the automatic composition of
-core and crosscutting models, enabling alternating views of the system dynamics (with and without the explicitation of the aspects) and, thus,
-facilitating the model understanding and maintenance. The SEA/Aspect, implemented in the SEA environment \cite{silva:00} as a tool, allows the dynamic
-enabling of aspects, visualizing only the behavior of the core models, the crosscutting models, or the composition of one or more crosscutting models
-with a core model automatically. The developer differentiates the behavior of each concern by different colors in the compound model.
+others to represent the behavior of the core and crosscutting concerns. The constructions are based in the AspectJ language \cite{AspectJ11} to Java.
+The proposed approach allows the capture of multiple join points with wildcards in the pointcut specification and the modeling of the most important
+characteristics of AOP. The constructions specified by the lightweight profile allows the automatic composition of core and crosscutting models,
+enabling alternating views of the system dynamics (with and without the explicitation of the aspects) and, thus, facilitating the model understanding
+and maintenance. The SEA/Aspect, implemented in the SEA environment \cite{silva:00} as a tool, allows the dynamic enabling of aspects, visualizing
+only the behavior of the core models, the crosscutting models, or the composition of one or more crosscutting models with a core model automatically.
+The developer differentiates the behavior of each concern by different colors in the compound model.
 
 This article is organized as follows: section II presents the related work. Section III presents the proposal for specification of aspect-oriented
 software. The section IV deals with the aspects composition and the visualization toggling tool. Section V presents a case study using the proposed
@@ -98,46 +98,48 @@ Some studies have been done in the modeling of aspect-oriented applications. Som
 customized meta-model. Most approaches represents the structure of aspect-oriented applications, but some also represent its behavior. The automatic 
 composition of models is a desired feature, because it allows the toggle of views and automates part of the modeling. According to Fuentes
 \cite{fuentes-profile:1755547}, although each form of extension has its advantages and disadvantages, in most cases, the extension through a profile 
-is better than extending the meta-model, because the meta-model extensions cannot be used in CASE available tools.
+is better than extending the meta-model, because the meta-model extensions cannot be used in available CASE tools.
 
 The proposals that are presented next extends the UML through profiles. Evermann{'}s \cite{Evermann:2007:MSP:1229375.1229379} proposes a profile to
 model the structure of aspect-oriented applications. Some stereotypes proposed by him are used in this work, as the definition of aspects and
 crosscutting concerns. One of the main contributions of Evermann{'}s work is the representation of aspect-oriented applications only within UML terms,
-without textual specifications. But using only UML terms, it is not possible to capture multiple join points with wildcards in the pointcut
+without textual specifications. However, Everman{'}s approach does not allow the capture of multiple join points with wildcards in the pointcut
 specification. Our approach represents pointcuts with states and transitions from the UML state machine diagram, which allows the specification of
 wildcards. The Motorola WEAVR \cite{Cottenier06themotorola} uses the UML state machine diagram to represent pointcuts and advices, extending its
-semantics through a lightweight profile. The aspects are modeled using state machines focused in transitions, instead the traditional state machines
-that are focused in the states. However, the modeling is in a low-level of abstraction with constructions close to the target language code. Our
-approach also differentiates from Cottenier{'}s in the modeling of advices. While it models advices with the UML state machine diagram, we use the UML
-sequence diagram to represent the advices as a set of messages. In our approach, the connection between pointcuts and advices is obtained with the use
-of state invariants, which are added in the sequence diagrams. When the system mets a pointcut, it enters in a state, this state is referred as a
-state invariant in the sequence diagram and triggers the execution of the advice. The Stein{'}s approach \cite{stein:02}
-\cite{Stein:2006:EDC:1119655.1119661} \cite{Hanenberg:2007:ADA:1218563.1218570} allows the specification of aspect-oriented applications through a
-profile. However, the main objective of the approach is the automatic generation of code from aspect-oriented models, while our approach performs
-weaving of core and crosscutting models in the modeling level.
+semantics through a lightweight profile. The aspects are modeled using state machines focused in transitions. However, the modeling is in a low-level
+of abstraction with constructions close to the target language code. Our approach also differentiates from Cottenier{'}s in the modeling of advices.
+While it models advices with the UML state machine diagram, we use the UML sequence diagram to represent the advices as a set of messages. In our
+approach, the connection between pointcuts and advices is obtained with the use of state invariants, which are added in the sequence diagrams. When
+the system mets a pointcut, it enters in a state, this state is referred as a state invariant in the sequence diagram and triggers the execution of
+the advice. The Stein{'}s approach \cite{stein:02} \cite{Stein:2006:EDC:1119655.1119661} \cite{Hanenberg:2007:ADA:1218563.1218570} allows the
+specification of aspect-oriented applications through a profile. However, the main objective of the approach is the automatic generation of code from
+aspect-oriented models, modeling the core and crosscutting concerns in a low-level of abstraction. Our approach represents the concerns in a
+high-level of abstraction with state machine and sequence diagrams.
 
 The extension through meta-modeling is a characteristic of the approaches presented from now. A multi-view modeling is proposed by Kienzle
 \cite{Kienzle:2009:AMM:1509239.1509252}, extending the UML meta-model. The Reusable Aspect Models (RAM) models the structure of applications using the
 class diagram, and the behavior using the sequence and state machine diagrams. Introductions are modeled with class diagrams. Pointcuts and advices
-are represented with sequence and state machine diagrams. The modeling does not represents the connection between pointcuts and sequence diagrams. In
-this paper, the pointcuts are defined in state machines and the connection between pointcuts and sequence diagrams is realized using state invariants,
-which is not specified in the RAM approach. The main contributions of RAM is that it allows a complete representation of an aspect-oriented
-application in the modeling phase, using class, sequence and state machine diagrams. Another important contribution is the extensive consistency
-checks in the weaving and on compound models. Klein{'}s approach \cite{Klein:2007:WMA:1805812.1805819} uses extended sequence diagrams to model the
+are represented with sequence and state machine diagrams. The main contributions of RAM is that it allows a complete representation of an aspect-oriented
+application in the modeling phase, using class, sequence and state machine diagrams.However, Kienzle{'}s proposal does not represents the
+connection between pointcuts and sequence diagrams. In our approach the pointcuts are defined in state machines and the connection between pointcuts and
+sequence diagrams is realized using state invariants. Klein{'}s approach \cite{Klein:2007:WMA:1805812.1805819} uses extended sequence diagrams to model the
 system behavior and allows the composition of multiple aspects in the same joinpoint. However, the approach of Klein does not allow the representation
-of pointcuts with wildcards. Jacobson{'}s approach \cite{Jacobson:2004:ASD:1062430} represents aspects in terms of use cases. A construction named
-use-case slice (with the stereotype \textit{use case slice}) groups all the models of a concern, which includes introductions and collaborations. Our
+of pointcuts with wildcards, while our profile allows the specification of wildcards in the state transitions of the state machine diagrams that
+represents pointcuts. Jacobson{'}s approach \cite{Jacobson:2004:ASD:1062430} represents aspects in terms of use cases.
+A construction named use-case slice (with the stereotype \textit{use case slice}) groups all the models of a concern, which includes introductions and collaborations. Our
 approach uses the Hotel Management System presented in Jacobson{'} work to assess the specification of aspect-oriented software. One of the
 limitations of the approach is the need to compose the aspect models manually, which increases the time spent in the modeling, while our approach
 allows the automatic composition of models. Theme/UML \cite{theme:04} supports the modeling of core and crosscutting concerns, automates the
 composition of models and represents the most important features of AOP. Theme/UML modifies the UML meta-model and is dependent on the version 1.3 of
 the language. Carton{'}s proposal \cite{Carton:2009:MT:1692821.1692829} aims to overcome this limitation, creating a marking profile to represent
 Theme/UML accordingly to the UML standards. However, the model composition is still limited to the constructs available on the version 1.3 of the UML.
-High-Level Aspects (HiLA) \cite{HiLA} uses state machines to model aspect-oriented applications. Pointcuts and advices are modeled using states and
+We define a profile that is not dependent in a specific meta-model, and the composition of models uses elements of the UML standard meta-model.
+High-Level Aspects (HiLA) \cite{HiLA} uses state machines to model aspect-oriented applications. Pointcuts and advices are modeled using states and 
 transitions. In comparison with graph-transformation approaches, that also uses state machines to describe aspects, the models created with HiLA are
 more easier to construct and understand. A tool that performs the composition (weaving) of aspects is proposed in a recent contribution
 \cite{Zhang:2012:WSA:2162049.2162080}, which automates part of the modeling process. However, HiLA changes the UML meta-model to represent aspect-oriented 
-applications, and cannot be used in available CASE tools.
+applications, and cannot be used in available CASE tools. We propose an extension through a UML profile, that can be used in CASE tools that allows
+the importing of profiles.
 
 \section{Specification of Aspect-Oriented Software}
 
@@ -414,8 +416,9 @@ the aspect dynamics in a system.
 
 The main advantages of the proposed approach in relation to the others are: the representation of the important characteristics of the AOP, like the
 capture of multiple join points with the representation of the aspect behavior; the definition of a profile within the UML standards, which can be
-added in CASE tools that support importing profiles, and the composition and automatic visualization of the effect of the aspects in the core models
-in the SEA environment, which eases the understanding and maintenance of aspect-oriented systems.
+added in CASE tools that support importing profiles, and the composition and automatic visualization of the effect of the crosscutting models in the
+core models in the SEA environment, which eases the understanding and maintenance of aspect-oriented systems. The tool that allows the composition and
+visualization toggling of concerns may be added to CASE tools that allow functional extension, which is the case of the SEA environment.
 
 \bibliography{document}
 
